@@ -6,6 +6,7 @@ import { useRef } from 'react';
 extend({ PointerLockControlsImpl });
 
 export const ViewControls = (props) => {
+  const isLocked = useRef(false);
   const { camera, gl } = useThree();
   const controls = useRef();
 
@@ -19,6 +20,18 @@ export const ViewControls = (props) => {
     <pointerLockControlsImpl
       ref={controls}
       args={[camera, gl.domElement]}
+      onUpdate={() => {
+        if (controls.current) {
+          controls.current.addEventListener('lock', () => {
+            console.log('lock');
+            isLocked.current = true
+          });
+          controls.current.addEventListener('unlock', () => {
+            console.log('unlock')
+            isLocked.current = false;
+          });
+        }
+      }}
       {...props}
     />
   );

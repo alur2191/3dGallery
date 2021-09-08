@@ -1,4 +1,4 @@
-import React from 'react'
+import {useState, useEffect} from 'react'
 import * as THREE from 'three'
 import {useBox} from "@react-three/cannon"
 import { useLoader } from '@react-three/fiber'
@@ -6,7 +6,14 @@ import wall from '../../img/wall.jpg'
 import img from '../../img/img.jpeg'
 
 
-const Wall =()=>{
+const Wall =({cursorRef})=>{
+
+    const [hovered, setHovered] = useState(false)
+
+    useEffect(() => {
+        cursorRef.current.style.border = hovered ? 'solid 1px white' : 'none'
+    }, [hovered,cursorRef])
+
     const texture = useLoader(THREE.TextureLoader, wall)
     const imgTexture = useLoader(THREE.TextureLoader, img)
     const [refFront] = useBox(() => ({mass:0, position:[20,5,0]}))    
@@ -37,8 +44,9 @@ const Wall =()=>{
                 <meshLambertMaterial attach="material" map={texture}  />
             </mesh>
             <mesh 
+                onPointerOver={() => setHovered(true)}
+                onPointerOut={() => setHovered(false)}
                 ref={refPainting}>
-                
                 <planeBufferGeometry attach="geometry" args={[5, 4]} />
                 <meshBasicMaterial attach="material" map={imgTexture} toneMapped={false} />
             </mesh>

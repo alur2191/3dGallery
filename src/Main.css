@@ -1,0 +1,17 @@
+#cursor {
+    position:absolute;
+    top:50%;
+    left:50%;
+    z-index: 1;
+    padding: 4px;
+}
+
+#cursor > span {
+    position:absolute;
+    top:40%;
+    left:40%;
+    z-index: 1;
+    width: 2px;
+    height: 2px;
+    background: white;
+}

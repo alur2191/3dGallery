@@ -1,3 +1,4 @@
+import {useRef} from 'react'
 import {Canvas,useLoader} from '@react-three/fiber'
 import './Main.css';
 import {  Stars } from '@react-three/drei'
@@ -10,6 +11,7 @@ import { User } from './components/user/User';
 
 
 function Plane() {
+  
   const [ref] = usePlane(()=>({
     rotation: [-Math.PI / 2,0,0]
   }));
@@ -28,8 +30,23 @@ function Plane() {
 }
 
 function App() {
+  const cursorRef = useRef()
   return (
-    <Canvas style={{height:'100vh', background:'#161616'}}>
+    <div>
+      <div ref={cursorRef} id="cursor"><span></span></div>
+    <Canvas style={{height:'100vh', background:'#161616'}} raycaster={{
+        computeOffsets: (_, { size: { width, height } }) => {
+          // isLocked.current
+          if (true) {
+            return ({
+              offsetX: width / 2,
+              offsetY: height / 2
+            })
+          } else {
+            return null;
+          }
+        }
+      }}>
       {/* <OrbitControls  target={[0,3,0]} position={[0,5,0]}/> */}
       <Stars />
       <ambientLight intensity={0.5}/>
@@ -39,10 +56,12 @@ function App() {
       />
       <Physics gravity={[0, -30, 0]}>
         <User position={[15, 5, 10]} mass={1}/>
-        <Wall/>
+        <Wall cursorRef={cursorRef}/>
         <Plane />
       </Physics>
     </Canvas>
+    
+    </div>
   );
 }
 
