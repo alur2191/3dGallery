@@ -13,7 +13,8 @@ import { User } from './components/user/User';
 function Plane() {
   
   const [ref] = usePlane(()=>({
-    rotation: [-Math.PI / 2,0,0]
+    rotation: [-Math.PI / 2,0,0],
+    position:[0,0,0]
   }));
   const texture = useLoader(THREE.TextureLoader, img)
   if (texture) {
@@ -22,7 +23,7 @@ function Plane() {
     texture.anisotropy = 16;
   }
   return(
-    <mesh position={[0,-5,0]} rotation={[-Math.PI/ 2,0,0]}>
+    <mesh position={[0,0,0]} rotation={[-Math.PI/ 2,0,0]}>
       <planeBufferGeometry attach="geometry" args={[100,100]}/>
       <meshLambertMaterial attach="material" map={texture} />
     </mesh>
@@ -55,8 +56,8 @@ function App() {
         position={[10,15,10]}
         angle={0.3}
       />
-      <Physics gravity={[0, -30, 0]} broadphase="SAP">
-        <User position={[15, 5, 10]} />
+      <Physics gravity={[0, -30, 0]} >
+        <User position={[15, 2, 10]} />
         <Wall cursorRef={cursorRef}/>
         <Plane />
       </Physics>

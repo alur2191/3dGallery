@@ -23,7 +23,7 @@ export const User = (props) => {
     useEffect(() => {
         api.velocity.subscribe((v) => (velocity.current = v));
         api.position.subscribe((p) => {
-        camera.position.copy({ x: p[0], y: p[1], z: p[2] });
+        camera.position.copy({ x: p[0], y: p[1]+5, z: p[2] });
         });
     }, [api.velocity, api.position, camera.position]);
 
