@@ -15,6 +15,7 @@ export const User = (props) => {
     const [ref, api] = useSphere(() => ({
         mass: 1,
         type: "Dynamic",
+        
         ...props,
     }));
 
@@ -22,13 +23,13 @@ export const User = (props) => {
     useEffect(() => {
         api.velocity.subscribe((v) => (velocity.current = v));
         api.position.subscribe((p) => {
-        camera.position.copy({ x: p[0], y: p[1]+4, z: p[2] });
+        camera.position.copy({ x: p[0], y: p[1], z: p[2] });
         });
     }, [api.velocity, api.position, camera.position]);
 
     useFrame(() => {
         const direction = new Vector3();
-
+        
         const frontVector = new Vector3(
         0,
         0,
@@ -59,6 +60,6 @@ export const User = (props) => {
         <mesh ref={ref}>
             <sphereBufferGeometry args={[1, 16, 16]} />
         </mesh>
-        </>
+    </>
     );
 };

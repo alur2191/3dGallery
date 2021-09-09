@@ -22,10 +22,11 @@ function Plane() {
     texture.anisotropy = 16;
   }
   return(
-    <mesh position={[0,0.5,0]} rotation={[-Math.PI/ 2,0,0]}>
+    <mesh position={[0,-5,0]} rotation={[-Math.PI/ 2,0,0]}>
       <planeBufferGeometry attach="geometry" args={[100,100]}/>
       <meshLambertMaterial attach="material" map={texture} />
     </mesh>
+    
   )
 }
 
@@ -34,7 +35,7 @@ function App() {
   return (
     <div>
       <div ref={cursorRef} id="cursor"><span></span></div>
-    <Canvas style={{height:'100vh', background:'#161616'}} raycaster={{
+        <Canvas style={{height:'100vh', background:'#161616'}}  raycaster={{
         computeOffsets: (_, { size: { width, height } }) => {
           // isLocked.current
           if (true) {
@@ -54,8 +55,8 @@ function App() {
         position={[10,15,10]}
         angle={0.3}
       />
-      <Physics gravity={[0, -30, 0]}>
-        <User position={[15, 5, 10]} mass={1}/>
+      <Physics gravity={[0, -30, 0]} broadphase="SAP">
+        <User position={[15, 5, 10]} />
         <Wall cursorRef={cursorRef}/>
         <Plane />
       </Physics>
