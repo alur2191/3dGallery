@@ -6,7 +6,7 @@ import {ViewControls} from '../controls/ViewControls'
 import { Vector3 } from "three";
 import { useKeyboardControls } from "../../hooks/useKeyboardControls";
 
-const SPEED = 6;
+const SPEED = 10;
 
 export const User = (props) => {
     const { camera } = useThree();
@@ -44,7 +44,7 @@ export const User = (props) => {
         direction
         .subVectors(frontVector, sideVector)
         .normalize()
-        .multiplyScalar(run?18:SPEED)
+        .multiplyScalar(run?20:SPEED)
         .applyEuler(camera.rotation);
 
         api.velocity.set(direction.x, velocity.current[1], direction.z);

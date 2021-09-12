@@ -5,7 +5,7 @@ import {  Stars } from '@react-three/drei'
 import {Physics,usePlane} from "@react-three/cannon"
 import Wall from './components/wall/Wall'
 import * as THREE from 'three'
-import img from './img/floor.png'
+import img from './img/floor3.jpg'
 import { User } from './components/user/User';
 
 

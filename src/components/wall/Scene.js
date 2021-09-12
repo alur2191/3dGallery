@@ -10,7 +10,7 @@ import React, { useRef } from 'react'
 import * as THREE from 'three'
 import { useLoader } from '@react-three/fiber'
 import { useGLTF } from '@react-three/drei'
-import floor from '../../img/floor.png'
+import floor from '../../img/floor3.jpg'
 
 export default function Model(props) {
   const texture = useLoader(THREE.TextureLoader, floor)
