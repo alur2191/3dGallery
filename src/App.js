@@ -3,7 +3,9 @@ import {Canvas,useLoader} from '@react-three/fiber'
 import './Main.css';
 import {  Stars } from '@react-three/drei'
 import {Physics,usePlane} from "@react-three/cannon"
-import Wall from './components/wall/Wall'
+import Building from './components/building/Building'
+import SecondBuilding from './components/building/SecondBuilding'
+
 import * as THREE from 'three'
 import img from './img/floor3.jpg'
 import { User } from './components/user/User';
@@ -24,7 +26,7 @@ function Plane() {
   }
   return(
     <mesh position={[0,0,0]} rotation={[-Math.PI/ 2,0,0]}>
-      <planeBufferGeometry attach="geometry" args={[100,100]}/>
+      <planeBufferGeometry attach="geometry" args={[500,500]}/>
       <meshLambertMaterial attach="material" map={texture} />
     </mesh>
     
@@ -58,7 +60,8 @@ function App() {
       />
       <Physics gravity={[0, -30, 0]} >
         <User position={[15, 2, 10]} />
-        <Wall cursorRef={cursorRef}/>
+        <Building cursorRef={cursorRef}/>
+        <SecondBuilding cursorRef={cursorRef}/>
         <Plane />
       </Physics>
     </Canvas>

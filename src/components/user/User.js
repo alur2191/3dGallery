@@ -44,7 +44,7 @@ export const User = (props) => {
         direction
         .subVectors(frontVector, sideVector)
         .normalize()
-        .multiplyScalar(run?20:SPEED)
+        .multiplyScalar(run?100:SPEED)
         .applyEuler(camera.rotation);
 
         api.velocity.set(direction.x, velocity.current[1], direction.z);
