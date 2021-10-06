@@ -5,7 +5,6 @@ import {  Stars } from '@react-three/drei'
 import {Physics,usePlane} from "@react-three/cannon"
 import Building from './components/building/Building'
 import SecondBuilding from './components/building/SecondBuilding'
-
 import * as THREE from 'three'
 import img from './img/floor3.jpg'
 import { User } from './components/user/User';
