@@ -71,6 +71,9 @@ const Building =({cursorRef})=>{
             <Scene position={[-5,25,25]} scale={[6,7,7]} rotation={[0,-7.87,0]}/>
             <mesh
                 castShadow
+                onPointerOver={e=>{
+                    e.stopPropagation()
+                }}
                 ref={refStairsWall} >
                 <boxBufferGeometry attach="geometry" args={[22,34,1]}/>
                 <meshLambertMaterial attach="material"  map={texture} />
@@ -149,48 +152,72 @@ const Building =({cursorRef})=>{
             </mesh>
             <mesh
                 castShadow
+                onPointerOver={e=>{
+                    e.stopPropagation()
+                }}
                 ref={refFrontOne} >
                 <boxBufferGeometry attach="geometry" args={[1,19,25]}/>
                 <meshLambertMaterial attach="material" map={texture} />
             </mesh>
             <mesh
                 castShadow
+                onPointerOver={e=>{
+                    e.stopPropagation()
+                }}
                 ref={refFrontTwo} >
                 <boxBufferGeometry attach="geometry" args={[1,19,17]}/>
                 <meshLambertMaterial attach="material" map={texture} />
             </mesh>
             <mesh
                 castShadow
+                onPointerOver={e=>{
+                    e.stopPropagation()
+                }}
                 ref={refFrontTop} >
                 <boxBufferGeometry attach="geometry" args={[1,31,50]}/>
                 <meshLambertMaterial attach="material" map={texture} />
             </mesh>
             <mesh
                 castShadow
+                onPointerOver={e=>{
+                    e.stopPropagation()
+                }}
                 ref={refBack} >
                 <boxBufferGeometry attach="geometry" args={[1,48,50]}/>
                 <meshLambertMaterial attach="material" map={texture}  />
             </mesh>
             <mesh
                 castShadow
+                onPointerOver={e=>{
+                    e.stopPropagation()
+                }}
                 ref={refLeft} >
                 <boxBufferGeometry attach="geometry" args={[31,17,1]}/>
                 <meshLambertMaterial attach="material" map={texture}  />
             </mesh>
             <mesh
                 castShadow
+                onPointerOver={e=>{
+                    e.stopPropagation()
+                }}
                 ref={refLeft2} >
                 <boxBufferGeometry attach="geometry" args={[41,48,1]}/>
                 <meshLambertMaterial attach="material" map={texture}  />
             </mesh>
             <mesh
                 castShadow
+                onPointerOver={e=>{
+                    e.stopPropagation()
+                }}
                 ref={refLeft3} >
                 <boxBufferGeometry attach="geometry" args={[22,35,1]}/>
                 <meshLambertMaterial attach="material" map={texture}  />
             </mesh>
             <mesh
                 castShadow
+                onPointerOver={e=>{
+                    e.stopPropagation()
+                }}
                 ref={refRight} >
                 <boxBufferGeometry attach="geometry" args={[41,18,1]}/>
                 <meshLambertMaterial attach="material" map={texture}  />
