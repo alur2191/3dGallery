@@ -1,4 +1,4 @@
-# NFMuseum
+# 3dGallery
 
 3d museum built with Three.js. Personal project under development. 
 
