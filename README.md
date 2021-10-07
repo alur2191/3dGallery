@@ -1,6 +1,8 @@
-# NFMuseum
+# 3dGallery
 
 3d museum built with Three.js. Personal project under development. 
+
+[Preview on Netlify](https://615e03e126c2ab0008421ec2--optimistic-edison-69a27b.netlify.app/)
 
 
 ### Usage:
